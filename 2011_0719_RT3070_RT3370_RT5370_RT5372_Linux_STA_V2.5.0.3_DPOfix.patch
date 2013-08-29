@@ -1,0 +1,61 @@
+diff -ruN 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/include/rtmp_def.h 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix/include/rtmp_def.h
+--- 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/include/rtmp_def.h	2011-07-19 03:56:36.000000000 -0500
++++ 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix/include/rtmp_def.h	2013-08-29 15:08:44.452454714 -0500
+@@ -1473,8 +1473,8 @@
+ #define IS_OPMODE_AP(_x)		((_x)->OpMode == OPMODE_AP)
+ #define IS_OPMODE_STA(_x)		((_x)->OpMode == OPMODE_STA)
+ 
+-#define INF_MAIN_DEV_NAME		"ra"
+-#define INF_MBSSID_DEV_NAME		"ra"
++#define INF_MAIN_DEV_NAME		"wlan"
++#define INF_MBSSID_DEV_NAME		"wlan"
+ #define INF_WDS_DEV_NAME		"wds"
+ #define INF_APCLI_DEV_NAME		"apcli"
+ #define INF_MESH_DEV_NAME		"mesh"
+diff -ruN 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/os/linux/config.mk 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix/os/linux/config.mk
+--- 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/os/linux/config.mk	2011-07-19 03:56:36.000000000 -0500
++++ 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix/os/linux/config.mk	2013-08-29 15:05:17.144451051 -0500
+@@ -53,11 +53,11 @@
+ HAS_APCLI=n
+ 
+ # Support Wpa_Supplicant
+-HAS_WPA_SUPPLICANT=n
++HAS_WPA_SUPPLICANT=y
+ 
+ 
+ # Support Native WpaSupplicant for Network Maganger
+-HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=n
++HAS_NATIVE_WPA_SUPPLICANT_SUPPORT=y
+ 
+ #Support Net interface block while Tx-Sw queue full
+ HAS_BLOCK_NET_IF=n
+@@ -220,7 +220,7 @@
+ # config for STA mode
+ 
+ ifeq ($(RT28xx_MODE),STA)
+-WFLAGS += -DCONFIG_STA_SUPPORT -DDBG
++WFLAGS += -DCONFIG_STA_SUPPORT
+ 
+ ifeq ($(HAS_XLINK),y)
+ WFLAGS += -DXLINK_SUPPORT
+diff -ruN 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/sta/sta_cfg.c 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix/sta/sta_cfg.c
+--- 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/sta/sta_cfg.c	2011-07-19 03:56:36.000000000 -0500
++++ 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix/sta/sta_cfg.c	2013-08-29 15:07:23.668453275 -0500
+@@ -4092,7 +4092,7 @@
+ }
+ 
+ 
+-#ifdef DBG
++//#ifdef DBG
+ /* 
+     ==========================================================================
+     Description:
+@@ -4690,7 +4690,7 @@
+ 	DBGPRINT(RT_DEBUG_TRACE, ("<==RTMPIoctlRF\n\n"));
+ }
+ #endif /* RTMP_RF_RW_SUPPORT */
+-#endif /* DBG */
++//#endif /* DBG */
+ 
+ 
+ VOID RTMPIoctlBbp(

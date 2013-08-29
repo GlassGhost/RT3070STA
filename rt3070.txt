@@ -1,0 +1,27 @@
+
+dmesg | grep -i usb
+[    3.352806] usb 1-1.2: new high-speed USB device number 4 using dwc_otg
+[    3.490911] usb 1-1.2: New USB device found, idVendor=148f, idProduct=3070
+[    3.504524] usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.519432] usb 1-1.2: Product: 802.11 n WLAN
+[    3.530463] usb 1-1.2: Manufacturer: Ralink
+[    3.541113] usb 1-1.2: SerialNumber: 1.0
+
+lsusb
+Bus 001 Device 004: ID 148f:3070 Ralink Technology, Corp. RT2870/RT3070 Wireless Adapter
+
+pi@raspberrypi ~ $ ifconfig -a
+eth0      Link encap:Ethernet  HWaddr b8:27:eb:90:4f:b1  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
