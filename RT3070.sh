@@ -14,7 +14,7 @@ patch -s -p0 < 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix.p
 #To fix "/lib/modules/*/build: No such file or directory. Stop." errors modify
 #the driver Makefile to point to '/usr/src/linux-headers-3.6-trunk-rpi' rather
 #than '/lib/modules/$(shell uname -r)'.
-grep something /lib/modules/$(shell uname -r) something /usr/src/linux-headers something
+sed -i 's/\/lib\/modules\/\$(shell uname -r)/\/usr\/src\/linux-headers-3.6-trunk-rpi/' Makefile
 sudo make && sudo checkinstall -D make install
 make clean
 cd $owd
@@ -28,3 +28,4 @@ blacklist rt2800usb
 modprobe rt3070sta
 
 exit
+
