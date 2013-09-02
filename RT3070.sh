@@ -16,9 +16,9 @@ patch -s -p0 < 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix.p
 #than '/lib/modules/$(shell uname -r)'.
 sed -i 's/\/lib\/modules\/\$(shell uname -r)/\/lib\/modules\/3.6-trunk-rpi/' Makefile
 sudo make && sudo checkinstall -D make install
-make clean
+#make clean
 cd $owd
-rm -rf 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO
+#rm -rf 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO
 
 sudo echo "blacklist rt2x00usb
 blacklist rt2x00lib
