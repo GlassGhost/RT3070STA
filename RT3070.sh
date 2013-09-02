@@ -23,9 +23,9 @@ cd $owd
 sudo echo "blacklist rt2x00usb
 blacklist rt2x00lib
 blacklist rt2800usb
-" > /etc/modprobe.d/rt3070sta.conf
+" > /etc/modprobe.d/rt5370sta.conf
 
-modprobe rt3070sta
+modprobe rt5370sta
 
 exit
 
