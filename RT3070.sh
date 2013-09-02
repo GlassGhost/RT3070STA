@@ -1,4 +1,4 @@
-s#!/bin/bash
+#!/bin/bash
 owd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Path to THIS script.
 
 #lsusb = Bus 001 Device 004: ID 148f:3070 Ralink Technology, Corp. RT2870/RT3070 Wireless Adapter
