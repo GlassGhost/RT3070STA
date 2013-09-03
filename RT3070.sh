@@ -28,4 +28,4 @@ blacklist rt2800usb
 modprobe rt5370sta
 
 exit
-
+#sudo ln -s /lib/modules/3.6-trunk-rpi/kernel/drivers/net/wireless/rt5370sta.ko /lib/modules/'uname -r'/kernel/drivers/net/wireless/rt5370sta.ko
