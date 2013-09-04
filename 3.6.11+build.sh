@@ -9,8 +9,6 @@ sudo ln -s /usr/src/linux-rpi-3.6.y/ /lib/modules/3.6.11+/build
 cd /lib/modules/3.6.11+/build
 sudo make mrproper
 sudo gzip -dc /proc/config.gz > .config
-sudo su
-gzip -dc /proc/config.gz > .config
-make modules_prepare
-wget https://github.com/raspberrypi/firmware/raw/master/extra/Module.symvers
+sudo make modules_prepare
+sudo wget https://github.com/raspberrypi/firmware/raw/master/extra/Module.symvers
 exit

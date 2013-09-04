@@ -14,8 +14,9 @@ tar -xjf 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO.bz2
 cd $owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO
 #From http://forum.stmlabs.com/showthread.php?tid=8333
 patch -s -p0 < 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPOfix.patch
-make clean && make && sudo checkinstall -D make install
-
+make clean && make
+sudo checkinstall --pkgname='rt5370sta' --pkgversion='2.5.0.3' -y -D make install
+#--exclude='/lib/modules/3.6.11+/modules.devname'
 #rm -rf $owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO
 
 sudo echo "blacklist rt2x00usb
@@ -23,7 +24,7 @@ blacklist rt2x00lib
 blacklist rt2800usb
 " > /etc/modprobe.d/rt5370sta.conf
 
-modprobe rt5370sta
+sudo modprobe rt5370sta
 
 exit
 #sudo ln -s /lib/modules/3.6-trunk-rpi/kernel/drivers/net/wireless/rt5370sta.ko /lib/modules/'uname -r'/kernel/drivers/net/wireless/rt5370sta.ko
