@@ -7,8 +7,8 @@ sudo wget https://github.com/raspberrypi/linux/archive/rpi-3.6.y.tar.gz
 sudo tar xvfz rpi-3.6.y.tar.gz
 sudo ln -s /usr/src/linux-rpi-3.6.y/ /lib/modules/3.6.11+/build
 cd /lib/modules/3.6.11+/build
-sudo make mrproper
-sudo gzip -dc /proc/config.gz > .config
-sudo make modules_prepare
 sudo wget https://github.com/raspberrypi/firmware/raw/master/extra/Module.symvers
+sudo gzip -dc /proc/config.gz > .config
+sudo make mrproper
+sudo make modules_prepare
 exit
