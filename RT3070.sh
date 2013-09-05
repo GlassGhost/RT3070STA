@@ -4,6 +4,7 @@ owd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Path to THIS script.
 #lsusb = Bus 001 Device 004: ID 148f:3070 Ralink Technology, Corp. RT2870/RT3070 Wireless Adapter
 #http://www.ebay.com/itm/320986973768		~$4
 mkdir "$owd/pkgs"
+sudo apt-get update
 sudo apt-get -y --no-install-recommends  -do dir::cache::archives="$owd/pkgs" install linux-headers-3.6* checkinstall wpasupplicant
 sudo dpkg -i $owd/pkgs/*.deb
 #To fix "/lib/modules/*/build: No such file or directory. Stop." errors
