@@ -4,10 +4,13 @@ owd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Path to THIS script.
 #lsusb = Bus 001 Device 004: ID 148f:3070 Ralink Technology, Corp. RT2870/RT3070 Wireless Adapter
 #http://www.ebay.com/itm/320986973768		~$4
 mkdir "$owd/pkgs"
-sudo apt-get -y --no-install-recommends  -do dir::cache::archives="$owd/pkgs" install build-essential checkinstall wpasupplicant
+sudo apt-get -y --no-install-recommends  -do dir::cache::archives="$owd/pkgs" install linux-headers-3.6* checkinstall wpasupplicant
 sudo dpkg -i $owd/pkgs/*.deb
 #To fix "/lib/modules/*/build: No such file or directory. Stop." errors
-sudo bash $owd/3.6.11+build.sh
+sudo ln -s /lib/modules/3.6-trunk-rpi/ /lib/modules/3.6.11+/build
+cd /lib/modules/3.6.11+/build
+sudo wget https://github.com/raspberrypi/firmware/raw/master/extra/Module.symvers
+sudo gzip -dc /proc/config.gz | sudo tee .config > /dev/null
 
 cd $owd
 tar -xjf 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO.bz2
