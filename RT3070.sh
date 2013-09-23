@@ -19,7 +19,7 @@ owd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Path to THIS script.
 #lsusb = Bus 001 Device 004: ID 148f:3070 Ralink Technology, Corp. RT2870/RT3070 Wireless Adapter
 #http://www.ebay.com/itm/320986973768		~$4
 
-if [-d $owd/pkgs]; then #$owd/pkgs Directory exists
+if [ -d $owd/pkgs ]; then #$owd/pkgs Directory exists
 	echo "$owd/pkgs exists & prolly installed"
 else #$owd/pkgs Directory doesn't exist
 	mkdir "$owd/pkgs"
@@ -31,7 +31,7 @@ fi
 sudo bash $owd/3.6.11+build.sh
 
 cd $owd
-if [-d $owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO]; then #$owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO Directory exists
+if [ -d $owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO ]; then #$owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO Directory exists
 	echo "$owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO exists"
 	sudo rm -rf $owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO
 else #$owd/2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO Directory doesn't exist

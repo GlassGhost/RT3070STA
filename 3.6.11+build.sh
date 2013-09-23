@@ -20,13 +20,13 @@ owd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Path to THIS script.
 
 cd /usr/src
 
-if [-s /usr/src/xvfz rpi-3.6.y.tar.gz]; then #/usr/src/xvfz rpi-3.6.y.tar.gz file exists
+if [ -s /usr/src/xvfz rpi-3.6.y.tar.gz ]; then #/usr/src/xvfz rpi-3.6.y.tar.gz file exists
 	echo "/usr/src/xvfz rpi-3.6.y.tar.gz exists"
 else #/usr/src/xvfz rpi-3.6.y.tar.gz file  doesn't exist
 	sudo wget https://github.com/raspberrypi/linux/archive/rpi-3.6.y.tar.gz
 fi
 
-if [-d /usr/src/linux-rpi-3.6.y]; then #/usr/src/linux-rpi-3.6.y Directory exists
+if [ -d /usr/src/linux-rpi-3.6.y ]; then #/usr/src/linux-rpi-3.6.y Directory exists
 	echo "deleting /usr/src/linux-rpi-3.6.y"
 	sudo rm -rf /usr/src/linux-rpi-3.6.y
 else #/usr/src/linux-rpi-3.6.y Directory doesn't exist
