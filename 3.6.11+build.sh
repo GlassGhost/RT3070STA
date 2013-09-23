@@ -30,7 +30,7 @@ if [-d /usr/src/linux-rpi-3.6.y]; then #/usr/src/linux-rpi-3.6.y Directory exist
 	echo "deleting /usr/src/linux-rpi-3.6.y"
 	sudo rm -rf /usr/src/linux-rpi-3.6.y
 else #/usr/src/linux-rpi-3.6.y Directory doesn't exist
-	
+	echo "/usr/src/linux-rpi-3.6.y Directory doesn't exist"
 fi
 sudo tar xvfz rpi-3.6.y.tar.gz
 sudo ln -s /usr/src/linux-rpi-3.6.y/ /lib/modules/3.6.11+/build
